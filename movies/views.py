@@ -7,7 +7,7 @@ from django.contrib import messages
 from collections import Counter
 
 import random
-import wikipediaapi
+#import wikipediaapi
 #from movies.utils import get_movie_description
 
 def index(request):
