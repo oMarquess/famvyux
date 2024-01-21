@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+<main id="main">
+    {% block content %}
+      <!-- ======= Breadcrumbs ======= -->
+      <div class="breadcrumbs">
+        <div class="page-header d-flex align-items-center" style="background-image: url('assets/img/page-header.jpg');">
+          <div class="container position-relative">
+            <div class="row d-flex justify-content-center">
+              <div class="col-lg-6 text-center">
+                <h4>Results not found</h4>
+                <p> Do you mind adding {{ query }} to our suggestion list?</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav>
+          <div class="container">
+            <ol>
+              <li><a href="{% url 'home' %}">Home</a></li>
+              <li></li>
+            </ol>
+          </div>
+        </nav>
+      </div><!-- End Breadcrumbs -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <form method="post"  action="{% url 'suggestion' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="suggested_title" id="suggested_title" placeholder="Suggested Movie Title" required>
+                        </div>
+                        <div class="form-group mt-3">
+                            <textarea class="form-control" name="description" rows="5" placeholder="Description" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Submit Suggestion</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+</main>

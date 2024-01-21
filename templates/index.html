@@ -1,0 +1,452 @@
+
+{% extends 'base.html' %}
+
+{% load static %}
+  <!-- End Hero Section -->
+  {% block content %}
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero d-flex align-items-center">
+    <div class="container">
+      <div class="row gy-4 d-flex justify-content-between">
+        <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h2 data-aos="fade-up">Discover Movies Through Parental Eyes with Luper</h2>
+          <p data-aos="fade-up" data-aos-delay="100">Embark on a cinematic journey where every movie tells a story beyond the screen. At Luper, we bring together parents from all walks of life to rate and review movies on IMDB, providing a unique perspective on what's suitable for family viewing. Dive into our extensive collection and find the perfect movie for your next family movie night.</p>
+  
+          <form action="{% url 'search_results' %}" method="get" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
+            <input type="text" class="form-control" name="query" placeholder="Search by Movie Title or Genre">
+            <button type="submit" class="btn btn-primary">Search</button>
+          </form>
+  
+          <div class="row gy-4" data-aos="fade-up" data-aos-delay="400">
+  
+            <div class="col-lg-3 col-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span data-purecounter-start="0" data-purecounter-end="5000" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Rated Movies</p>
+              </div><!-- End Stats Item -->
+            </div>
+  
+            <div class="col-lg-3 col-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span data-purecounter-start="0" data-purecounter-end="1200" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Parental Reviews</p>
+              </div><!-- End Stats Item -->
+            </div>
+  
+            <div class="col-lg-3 col-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span data-purecounter-start="0" data-purecounter-end="300" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Family Genres</p>
+              </div><!-- End Stats Item -->
+            </div>
+  
+            <div class="col-lg-3 col-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span data-purecounter-start="0" data-purecounter-end="800" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Active Members</p>
+              </div><!-- End Stats Item -->
+            </div>
+  
+          </div>
+        </div>
+  
+        <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
+          <img src="{% static 'assets/img/hero-img.svg' %}" class="img-fluid mb-3 mb-lg-0" alt="Luper Hero Image">
+        </div>
+  
+      </div>
+    </div>
+  </section><!-- End Hero Section -->
+  
+
+  <main id="main">
+
+    <!-- ======= Featured Services Section ======= -->
+    <section id="featured-services" class="featured-services">
+      <div class="container">
+    
+        <div class="row gy-4">
+    
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up">
+            <div class="icon flex-shrink-0"><i class="fa-solid fa-film"></i></div>
+            <div>
+              <h4 class="title">Comprehensive Movie Database</h4>
+              <p class="description">Explore an extensive collection of movies from IMDB, complete with parental ratings and reviews to guide your family's viewing choices.</p>
+              <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+          <!-- End Service Item -->
+    
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon flex-shrink-0"><i class="fa-solid fa-users"></i></div>
+            <div>
+              <h4 class="title">Parental Community Insights</h4>
+              <p class="description">Join a community of parents sharing their insights and experiences to help you make informed decisions about suitable movies for your children.</p>
+              <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><!-- End Service Item -->
+    
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon flex-shrink-0"><i class="fa-solid fa-star"></i></div>
+            <div>
+              <h4 class="title">Personalized Recommendations</h4>
+              <p class="description">Get tailored movie suggestions based on your preferences and the ratings of like-minded parents, ensuring a great pick for family movie night.</p>
+              <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><!-- End Service Item -->
+    
+        </div>
+    
+      </div>
+    </section><!-- End Featured Services Section -->
+    
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about pt-0">
+      <div class="container" data-aos="fade-up">
+    
+        <div class="row gy-4">
+          <div class="col-lg-6 position-relative align-self-start order-lg-last order-first">
+            <img src="{% static 'assets/img/about.jpg' %}" class="img-fluid" alt="About Luper">
+            <a href="#" class="glightbox play-btn"></a>
+          </div>
+          <div class="col-lg-6 content order-last  order-lg-first">
+            <h3>About Luper</h3>
+            <p>
+              At Luper, we believe in the power of movies to bring families together. Our mission is to create a community where parents can share honest movie reviews and ratings, helping each other make informed decisions about what films are suitable for their children. We combine the vast database of IMDB with the real-world experiences of parents to provide a unique perspective on movie content.
+            </p>
+            <ul>
+              <li data-aos="fade-up" data-aos-delay="100">
+                <i class="bi bi-diagram-3"></i>
+                <div>
+                  <h5>Community-Driven Ratings</h5>
+                  <p>Our platform is built on the contributions of parents worldwide, offering genuine insights into movie suitability for different age groups.</p>
+                </div>
+              </li>
+              <li data-aos="fade-up" data-aos-delay="200">
+                <i class="bi bi-fullscreen-exit"></i>
+                <div>
+                  <h5>Extensive Movie Database</h5>
+                  <p>With access to IMDB's comprehensive movie database, Luper provides detailed information and ratings for a vast array of films.</p>
+                </div>
+              </li>
+              <li data-aos="fade-up" data-aos-delay="300">
+                <i class="bi bi-broadcast"></i>
+                <div>
+                  <h5>Family-Friendly Focus</h5>
+                  <p>Our focus is on creating a safe, family-friendly environment where parents can find and discuss films that align with their values and preferences.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+    
+      </div>
+    </section><!-- End About Us Section -->
+    
+    <!-- ======= Services Section ======= -->
+    <section id="service" class="services pt-0">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <span>Top Rated Movies</span>
+          <h2>Top Rated Movies</h2>
+
+        </div>
+
+        <div class="row gy-4">
+          {% for item in movies_with_ratings %}
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="card movie-card">
+                  <img src="{{ item.image_url }}" alt="" class="img-fluid movie-card-img">
+                  <div class="card-body movie-card-body">
+                      <h3><a href="{% url 'movie_detail' item.movie.id %}" class="stretched-link">{{ item.movie.title }}</a></h3>
+                      <p>Average Rating: {{ item.average_rating }}</p>
+                      <p>Year: {{ item.movie.year }}</p>
+                      <p>Star Rating: {{ item.movie.star_rating }}</p>
+                      <p>Duration: {{ item.movie.duration }}</p>
+                  </div>
+              </div>
+          </div>
+      {% endfor %}
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Call To Action Section ======= -->
+    <section id="call-to-action" class="call-to-action">
+      <div class="container" data-aos="zoom-out">
+
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <h3>Join the Luper Parental Community</h3>
+            <p>Are you looking for a reliable way to choose movies for your family? Join Luper today and become part of a community where parents come together to rate and review movies. Share your insights, learn from others, and discover the best movies for your family's next movie night.</p>
+            <a class="cta-btn" href="#">Join Luper Now</a>
+          </div>
+        </div>
+        
+      </div>
+    </section><!-- End Call To Action Section -->
+
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features">
+      <div class="container">
+    
+        <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
+          <div class="col-md-5">
+            <img src="{% static 'assets/img/community.jpg' %}" class="img-fluid" alt="">
+          </div>
+          <div class="col-md-7">
+            <h3>Curated Movie Selections for Families</h3>
+            <p class="fst-italic">
+              At Luper, we understand the importance of family-friendly entertainment. Our curated selection of movies is tailored to be enjoyable for both parents and children.
+            </p>
+            <ul>
+              <li><i class="bi bi-check"></i> Wide range of movies suitable for family viewing.</li>
+              <li><i class="bi bi-check"></i> Detailed parental ratings and reviews.</li>
+              <li><i class="bi bi-check"></i> Regular updates with the latest family-friendly titles.</li>
+            </ul>
+          </div>
+        </div><!-- Features Item -->
+    
+        <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
+          <div class="col-md-5 order-1 order-md-2">
+            <img src="{% static 'assets/img/family.jpg' %}" class="img-fluid" alt="">
+          </div>
+          <div class="col-md-7 order-2 order-md-1">
+            <h3>Community-Driven Insights</h3>
+            <p class="fst-italic">
+              Luper is more than just a movie rating site; it's a community where parents share their experiences and insights.
+            </p>
+            <p>
+              Engage with a network of parents to get honest opinions and recommendations for your next family movie night.
+            </p>
+          </div>
+        </div><!-- Features Item -->
+    
+        <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
+          <div class="col-md-5">
+            <img src="{% static 'assets/img/movie.jpg' %}" class="img-fluid" alt="">
+          </div>
+          <div class="col-md-7">
+            <h3>Personalized Recommendations</h3>
+            <p>At Luper, we use advanced algorithms to offer personalized movie recommendations based on your preferences and viewing history.</p>
+            <ul>
+              <li><i class="bi bi-check"></i> Tailored suggestions for each family member.</li>
+              <li><i class="bi bi-check"></i> Discover new and exciting titles that fit your taste.</li>
+              <li><i class="bi bi-check"></i> Easy-to-use interface for a seamless experience.</li>
+            </ul>
+          </div>
+        </div><!-- Features Item -->
+    
+        <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
+          <div class="col-md-5 order-1 order-md-2">
+            <img src="{% static 'assets/img/secure.jpg' %}" class="img-fluid" alt="">
+          </div>
+          <div class="col-md-7 order-2 order-md-1">
+            <h3>Safe and Secure Platform</h3>
+            <p class="fst-italic">
+              Your family's privacy and security are our top priority. Enjoy a safe browsing experience on Luper.
+            </p>
+            <p>
+              We employ state-of-the-art security measures to protect your data and ensure a safe environment for all users.
+            </p>
+          </div>
+        </div><!-- Features Item -->
+    
+      </div>
+    </section><!-- End Features Section -->
+    
+<!-- ======= Testimonials Section ======= -->
+<section id="testimonials" class="testimonials">
+  <div class="container">
+
+    <div class="slides-1 swiper" data-aos="fade-up">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <div class="testimonial-item">
+            <img src="{% static 'assets/img/testimonials/testimonials-1.jpg' %}" class="testimonial-img" alt="">
+            <h3>Emily Johnson</h3>
+            <h4>Parent & Movie Enthusiast</h4>
+            <div class="stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p>
+              <i class="bi bi-quote quote-icon-left"></i>
+              Luper has been a game-changer for our family movie nights. The detailed ratings and reviews help us pick the perfect movies that are both entertaining and appropriate for our kids.
+              <i class="bi bi-quote quote-icon-right"></i>
+            </p>
+          </div>
+        </div><!-- End testimonial item -->
+
+        <div class="swiper-slide">
+          <div class="testimonial-item">
+            <img src="{% static 'assets/img/testimonials/testimonials-2.jpg' %}" class="testimonial-img" alt="">
+            <h3>David Smith</h3>
+            <h4>Single Dad & Film Lover</h4>
+            <div class="stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p>
+              <i class="bi bi-quote quote-icon-left"></i>
+              As a single dad, I always want to make sure the content my son watches is suitable. Luper's parental guides are incredibly helpful and spot-on. It's a trusted resource for our home.
+              <i class="bi bi-quote quote-icon-right"></i>
+            </p>
+          </div>
+        </div><!-- End testimonial item -->
+
+        <div class="swiper-slide">
+          <div class="testimonial-item">
+            <img src="{% static 'assets/img/testimonials/testimonials-3.jpg' %}" class="testimonial-img" alt="">
+            <h3>Lisa Chang</h3>
+            <h4>Teacher & Parent</h4>
+            <div class="stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p>
+              <i class="bi bi-quote quote-icon-left"></i>
+              I appreciate how Luper not only rates movies for family-friendliness but also provides educational insights. It's a great tool for selecting films that are both fun and informative for children.
+              <i class="bi bi-quote quote-icon-right"></i>
+            </p>
+          </div>
+        </div><!-- End testimonial item -->
+
+        <div class="swiper-slide">
+          <div class="testimonial-item">
+            <img src="{% static 'assets/img/testimonials/testimonials-4.jpg' %}" class="testimonial-img" alt="">
+            <h3>Mark Gonzalez</h3>
+            <h4>Movie Buff & Father</h4>
+            <div class="stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p>
+              <i class="bi bi-quote quote-icon-left"></i>
+              Luper's community reviews are a treasure trove of insights. It's great to see other parents' perspectives, which often helps me decide what to watch next with my kids.
+              <i class="bi bi-quote quote-icon-right"></i>
+            </p>
+          </div>
+        </div><!-- End testimonial item -->
+
+        <div class="swiper-slide">
+          <div class="testimonial-item">
+            <img src="{% static 'assets/img/testimonials/testimonials-5.jpg' %}" class="testimonial-img" alt="">
+            <h3>Anne Roberts</h3>
+            <h4>Working Mom & Cinephile</h4>
+            <div class="stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p>
+              <i class="bi bi-quote quote-icon-left"></i>
+              Balancing work and family life is tough, but Luper makes it easier to choose the right movies quickly. Their personalized recommendations are always spot-on!
+              <i class="bi bi-quote quote-icon-right"></i>
+            </p>
+          </div>
+        </div><!-- End testimonial item -->
+
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+  </div>
+</section><!-- End Testimonials Section -->
+
+    <!-- ======= Frequently Asked Questions Section ======= -->
+    <section id="faq" class="faq">
+      <div class="container" data-aos="fade-up">
+    
+        <div class="section-header">
+          <span>Frequently Asked Questions</span>
+          <h2>Frequently Asked Questions</h2>
+        </div>
+    
+        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-lg-10">
+    
+            <div class="accordion accordion-flush" id="faqlist">
+    
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
+                    <i class="bi bi-question-circle question-icon"></i>
+                    How does Luper rate movies for family-friendliness?
+                  </button>
+                </h3>
+                <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                  <div class="accordion-body">
+                    Luper uses a comprehensive rating system that considers factors like language, violence, sexual content, and thematic elements. Our team of reviewers, including parents and educators, provides detailed insights to help you make informed decisions.
+                  </div>
+                </div>
+              </div><!-- # Faq item-->
+    
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
+                    <i class="bi bi-question-circle question-icon"></i>
+                    Can I find content warnings for specific sensitivities?
+                  </button>
+                </h3>
+                <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                  <div class="accordion-body">
+                    Absolutely! Luper provides detailed content warnings for various sensitivities such as strong language, intense scenes, or specific themes. This information is clearly outlined in each movie's review section.
+                  </div>
+                </div>
+              </div><!-- # Faq item-->
+    
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">
+                    <i class="bi bi-question-circle question-icon"></i>
+                    Are there age-specific recommendations on Luper?
+                  </button>
+                </h3>
+                <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                  <div class="accordion-body">
+                    Yes, Luper offers age-specific recommendations. Our reviews include suggested age ranges, helping you choose movies that are most appropriate for your children's age group.
+                  </div>
+                </div>
+              </div><!-- # Faq item-->
+    
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-4">
+                    <i class="bi bi-question-circle question-icon"></i>
+                    How can I contribute to the Luper community?
+                  </button>
+                </h3>
+                <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                  <div class="accordion-body">
+                    We welcome contributions from parents and movie enthusiasts! You can share your own reviews and ratings, participate in community discussions, and provide feedback to help us improve our platform.
+                  </div>
+                </div>
+              </div><!-- # Faq item-->
+    
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-5">
+                    <i class="bi bi-question-circle question-icon"></i>
+                    Does Luper offer personalized movie recommendations?
+                  </button>
+                </h3>
+                <div id="faq-content-5" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                  <div class="accordion-body">
+                    Yes, Luper offers personalized recommendations based on your preferences and viewing history. Create a profile to get tailored suggestions for movies that align with your family's interests and values.
+                  </div>
+                </div>
+              </div><!-- # Faq item-->
+    
+            </div>
+    
+          </div>
+        </div>
+    
+      </div>
+    </section><!-- End Frequently Asked Questions Section -->
+    
+
+  </main><!-- End #main -->
+  {% endblock %}
+
+  <!-- ======= Footer ======= -->
