@@ -120,3 +120,6 @@ def movie_detail(request, movie_id):
         # Other context data as needed
     }
     return render(request, 'movie_details.html', context)
+
+def contact(request):
+    return render(request, 'contact.html')
