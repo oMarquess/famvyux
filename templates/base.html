@@ -58,15 +58,10 @@
     <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
     <nav id="navbar" class="navbar">
       <ul>
-        <li><a href={% url 'contact'%} class="active" target="self">Contact</a></li>
-        <li><a href={% url 'about'%} class="active" target="self">About</a></li>
-        <li><a href={% url 'services'%} class="active" target="self">Services</a></li>
-        <li><a href={% url 'blog'%} class="active" target="self">Blog</a></li> 
-        <li><a href={% url 'service_details'%} class="active" target="self">Service Details</a></li> 
-        <li><a href="{% url 'home' %}" class="active">Home</a></li>
+        
+        <li><a href="{% url 'home' %}" class="active">Home</a></li>     
+        <li><a href="{% url 'ratings' %}">Ratings</a></li>       
         <li><a href="{% url 'about' %}">About</a></li>
-        <li><a href="{% url 'ratings' %}">Ratings</a></li>
-        <li><a href="blog.html">Blog</a></li>
         <li><a href="{% url 'contact' %}">Contact</a></li>
         {% if user.is_authenticated %}
         <li><a class="get-a-quote" href="accounts/logout">{% user_display user %}</a></li>
