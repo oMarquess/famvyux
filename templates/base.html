@@ -47,7 +47,7 @@
 <header id="header" class="header d-flex align-items-center fixed-top">
   <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-    <a href="index.html" class="logo d-flex align-items-center">
+    <a href="{% url 'home' %}" class="logo d-flex align-items-center" target ="self">
       <!-- Uncomment the line below if you also wish to use an image logo -->
       <!-- <img src="assets/img/logo.png" alt=""> -->
       <h1>Famvyu</h1>
@@ -57,11 +57,11 @@
     <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
     <nav id="navbar" class="navbar">
       <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Ratings</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href={% url 'contact'%} class="active" target="self">Contact</a></li>
+        <li><a href={% url 'about'%} class="active" target="self">About</a></li>
+        <li><a href={% url 'services'%} class="active" target="self">Services</a></li>
+        <li><a href={% url 'blog'%} class="active" target="self">Blog</a></li> 
+        <li><a href={% url 'service_details'%} class="active" target="self">Service Details</a></li> 
         {% if user.is_authenticated %}
         <li><a class="get-a-quote" href="accounts/logout">{% user_display user %}</a></li>
         {% else %}

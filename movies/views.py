@@ -10,6 +10,21 @@ import random
 #import wikipediaapi
 #from movies.utils import get_movie_description
 
+def contact(request):
+    return render(request, 'contact.html')
+
+def about(request):
+    return render(request, 'about.html')
+
+def services(request):
+    return render(request, 'services.html')
+
+def blog(request):
+    return render(request, 'blog.html')
+
+def service_details(request):
+    return render(request, 'service_details.html')
+
 def index(request):
     all_movies = list(Movie.objects.all())
     random_movies = random.sample(all_movies, min(len(all_movies), 6))
