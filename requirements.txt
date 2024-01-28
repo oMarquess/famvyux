@@ -2,6 +2,7 @@ django-allauth == 0.58.2
 #celery-with-redis >= 3.0
 #django-celery-beat == 2.5.0
 django-allauth-ui == 0.1.5
+gunicorn == 21.2.0
 django-widget-tweaks == 1.5.0
 Wikipedia-API == 0.6.0
 SPARQLWrapper == 2.0.0
