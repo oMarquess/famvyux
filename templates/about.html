@@ -25,5 +25,25 @@
   </section>
 
   <!-- You can add more sections or customize the existing content as needed -->
+{% load static %}
+
+{% block content %}
+<style>
+  .coming-soon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    /* Gradient Background */
+    background: linear-gradient(to right, #007bff, #6610f2); /* Example: Blue to Purple gradient */
+  }
+</style>
+
+<div class="coming-soon">
+  <h4>Coming soon</h4>
+</div>
 
 {% endblock %}

@@ -49,7 +49,7 @@ def index(request):
             'year': movie.year,
             'duration': movie.duration,
             'star_rating': movie.star_rating,
-            'average_rating': average_rating,
+            'average_rating': round(average_rating),
             #'mood_types': mood_types,
             #'age_recommendations': age_recommendations,
             #'theme_labels': theme_labels,
@@ -135,3 +135,9 @@ def movie_detail(request, movie_id):
         # Other context data as needed
     }
     return render(request, 'movie_details.html', context)
+
+def contact(request):
+    return render(request, 'contact.html')
+
+def about(request):
+    return render(request, "about.html")
