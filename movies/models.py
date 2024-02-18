@@ -5,12 +5,12 @@ from django.conf import settings
 
 class Movie(models.Model):
     title = models.CharField(max_length=255)
-    image_url = models.URLField(default='', null= True)
+    image_url = models.URLField(default='', null= True, blank = True)
     year = models.CharField(max_length=4)  # Assuming year is always in YYYY format
     duration = models.CharField(max_length=10)  # Example: '3h 1m'
     star_rating = models.DecimalField(max_digits=3, decimal_places=1)  # Example: 8.0
     rate_count = models.CharField(max_length=100, blank=True, null=True)  # Rate count can be optional
-    product_url = models.URLField(default='', null=True)
+    product_url = models.URLField(default='', null=True, blank = True)
 
     def __str__(self):
         return self.title
