@@ -13,3 +13,10 @@ class SuggestionForm(forms.Form):
 #     class Meta:
 #         model = MovieRating
 #         fields = ['overall_rating', 'age_recommendation', 'mood_type', 'theme_label', 'theme_description']
+#         exclude = ['title']
+
+
+class MovieForm(forms.ModelForm):
+    class Meta:
+        model = Movie
+        exclude = ['product_url', 'image_url']
