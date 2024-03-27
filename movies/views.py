@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from movies.models import Movie, Suggestion
 from ratings.models import MovieRating
 from django.db.models import Avg, Count, Max
-from .forms import SuggestionForm
+from .forms import SuggestionForm, MovieForm
 from django.contrib import messages
 from collections import Counter
 
@@ -141,3 +141,17 @@ def contact(request):
 
 def about(request):
     return render(request, "about.html")
+
+def add_view(request):
+    context ={}
+ 
+    # create object of form
+    form = MovieForm(request.POST or None, request.FILES or None)
+     
+    # check if form data is valid
+    if form.is_valid():
+        # save the form data to model
+        form.save()
+ 
+    context['form']= form
+    return render(request, "add_movie.html", context)
