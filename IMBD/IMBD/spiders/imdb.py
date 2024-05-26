@@ -4,8 +4,7 @@ import re
 class ImdbSpider(scrapy.Spider):
     name = "imdb"
     allowed_domains = ["www.imdb.com"]
-    start_urls = ["https://www.imdb.com/search/title/?groups=top_1000&count=250&sort=user_rating,asc"]
-
+    start_urls = ["https://www.imdb.com/search/title/?genre=western&groups=top_1000&count=250&sort=user_rating,asc"]
     def start_requests(self):
         """
         Generates the initial request to scrape the IMDb top chart page.
@@ -13,7 +12,7 @@ class ImdbSpider(scrapy.Spider):
         Returns:
             scrapy.Request: The initial request object with the specified URL, callback function, headers, and cookies.
         """
-        url = "https://www.imdb.com/search/title/?groups=top_1000&count=250&sort=user_rating,asc"
+        url = "https://www.imdb.com/search/title/?genres=western&groups=top_1000&count=250&sort=user_rating,asc"
 
         self.cookies = {
             "__zlcmid": "1IcmEsVswE4IEC5",
