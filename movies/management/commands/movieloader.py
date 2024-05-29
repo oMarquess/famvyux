@@ -27,7 +27,7 @@ class Command(BaseCommand):
         :param args: Command line arguments
         :param options: Command line options
         """
-        json_file_path = os.path.join(settings.BASE_DIR, 'data', 'output.json')  # Adjusted file path
+        json_file_path = os.path.join(settings.BASE_DIR, 'data', 'data.json')  # Adjusted file path
 
         with open(json_file_path, 'r') as file:
             data = json.load(file)
