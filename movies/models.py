@@ -7,9 +7,9 @@ class Movie(models.Model):
     title = models.CharField(max_length=255)
     year = models.CharField(max_length=4)  # Assuming year is always in YYYY format
     imdb_rating = models.CharField(max_length=4)  # IMDb rating
-    metascore = models.CharField(max_length=3)  # Metascore
+    metascore = models.CharField(max_length=3, null=True, blank=True)  # Metascore
     image_url = models.URLField()
-    description = models.TextField()  # Description of the movie
+    description = models.TextField(null=True)  # Description of the movie
 
     def __str__(self):
         return self.title
