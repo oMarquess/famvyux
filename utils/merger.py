@@ -20,4 +20,5 @@ def combine_json_files(directory_path, output_file='data.json'):
         json.dump(combined_data, file, indent=4)
         print(f"Wrote {output_file}")
 
-combine_json_files('C:\Users\edakw\OneDrive\Not important pre(2023)\Desktop\famvyux\famvyux\IMBD')
+#combine_json_files('C:\Users\edakw\OneDrive\Not important pre(2023)\Desktop\famvyux\famvyux\IMBD')
+combine_json_files(r'C:\Users\srede\OneDrive\Desktop\Projex\Dakwas\src\famvyux\IMBD')
