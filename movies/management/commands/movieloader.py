@@ -61,6 +61,8 @@ import os
 import json
 import re
 from movies.models import Movie  # Adjust the import path as necessary
+from django.test import TestCase
+from unittest.mock import patch, mock_open
 
 class Command(BaseCommand):
     help = 'Cleans JSON data and imports it into the database'
@@ -98,3 +100,17 @@ class Command(BaseCommand):
                 self.stdout.write(self.style.WARNING('Skipping invalid entry: {}'.format(entry)))
 
         self.stdout.write(self.style.SUCCESS(f'Data cleaning and import complete. {count} new entries added.'))
+
+class TestMovieLoaderCommand(TestCase):
+    def test_clean_title(self):
+        command = Command()
+        self.assertEqual(command.clean_title("123. Some Title"), "Some Title")
+        self.assertEqual(command.clean_title("Title Without Number"), "Title Without Number")
+
+    @patch('movies.management.commands.movieloader.Command.handle')
+    @patch('builtins.open', new_callable=mock_open, read_data='[{"title": "123. Some Title", "year": "2020", "imdb_rating": "7.5", "metascore": "65", "image_url": "http://example.com/image.jpg", "description": "Some description."}]')
+    def test_handle(self, mock_file, mock_handle):
+        command = Command()
+        command.handle()
+        mock_handle.assert_called_once()
+        self.assertTrue(mock_file.called)
