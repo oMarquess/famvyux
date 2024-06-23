@@ -156,7 +156,7 @@
 
         <div class="row gy-4">
           {% for item in movies_with_ratings %}
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <!-- <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
               <div class="card movie-card">
                   <img src="{{ item.image_url }}" alt="" class="img-fluid movie-card-img">
                   <div class="card-body movie-card-body">
@@ -167,9 +167,27 @@
                       <p>Duration: {{ item.movie.duration }}</p>
                   </div>
               </div>
-          </div>
-      {% endfor %}
+          </div> -->
+          {% endfor %}
 
+
+          {% for item in movies_with_ratings %}
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="card movie-card">
+            <img src="{{ item.movie.image_url }}" alt="{{ item.movie.title }}" class="img-fluid movie-card-img">
+            <div class="card-body movie-card-body">
+                <h3><a href="{% url 'movie_detail' item.movie.id %}" class="stretched-link">{{ item.movie.title }}</a></h3>
+                <p>Average Rating: {{ item.average_rating }}</p>
+                <p>Year: {{ item.movie.year }}</p>
+                <p>IMDb Rating: {{ item.movie.imdb_rating }}</p>
+                <p>Metascore: {{ item.movie.metascore }}</p>
+            </div>
+         </div>
+        </div>
+        {% endfor %}
+
+          
+         
         </div>
 
       </div>
