@@ -203,10 +203,12 @@ def index(request):
 
 def search_results(request):
     query = request.GET.get('query', '')
+    print(query)
     form = SuggestionForm()  # Instantiate the form
 
     if query:
-        movies = Movie.objects.filter(title__icontains(query)) | Movie.objects.filter(year__icontains(query))
+        movies = Movie.objects.filter(title__icontains=query) | Movie.objects.filter(year__icontains=query) | Movie.objects.filter(description__iexact=query)
+        print(movies)
 
         if not movies.exists():
              # No movies found
