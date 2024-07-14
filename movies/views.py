@@ -206,7 +206,8 @@ def search_results(request):
     form = SuggestionForm()  # Instantiate the form
 
     if query:
-        movies = Movie.objects.filter(title__icontains(query)) | Movie.objects.filter(year__icontains(query))
+        movies = Movie.objects.filter(title__icontains=query)  
+        print(movies)
 
         if not movies.exists():
              # No movies found
