@@ -63,6 +63,7 @@
         <li><a href="{% url 'ratings' %}">Ratings</a></li>       
         <li><a href="{% url 'about' %}">About</a></li>
         <li><a href="{% url 'contact' %}">Contact</a></li>
+        <li><a href ="{% url 'search_view' %}">Serper</a></li>
         {% if user.is_authenticated %}
         <li><a class="get-a-quote" href="accounts/logout">{% user_display user %}</a></li>
         {% else %}

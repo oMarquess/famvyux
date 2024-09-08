@@ -53,6 +53,9 @@ INSTALLED_APPS = [
     'widget_tweaks'
 ]
 
+#Serper
+SERPER_API_KEY = os.getenv('SERPER_API_KEY', 'c7b81b77fb2728ba210d90b3f1b1eb760595ecf4')
+
 #all_auth_settings
 SITE_ID = 1
 LOGIN_URL = '/accounts/login/'

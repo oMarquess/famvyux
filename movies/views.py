@@ -285,3 +285,15 @@ def add_view(request):
     
     context['form'] = form
     return render(request, "add_movie.html", context)
+
+
+from .utils import search_serper
+
+def search_view(request):
+    query = request.GET.get('q', '')
+    results_serper = None
+    
+    if query:
+        results_serper = search_serper(query)
+    
+    return render(request, 'serper.html', {'query': query, 'results': results_serper})

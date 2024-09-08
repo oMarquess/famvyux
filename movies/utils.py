@@ -31,3 +31,23 @@
 # # Example usage
 # description = get_movie_description("Inception")
 # print(description)
+
+import requests
+from Luper import settings
+
+def search_serper(query):
+    url = "https://google.serper.dev/search"
+    headers = {
+        "X-API-KEY": settings.SERPER_API_KEY,
+        "Content-Type": "application/json"
+    }
+    data = {
+        "q": query
+    }               
+
+    response = requests.post(url, json=data, headers=headers)
+    
+    if response.status_code == 200:
+        return response.json()  # Serper API returns a JSON response
+    else:
+        response.raise_for_status()
