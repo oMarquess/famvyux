@@ -3,56 +3,50 @@
 {% load static %}
   <!-- End Hero Section -->
   {% block content %}
-  <!-- ======= Hero Section ======= -->
+  <!-- ======= Modern Hero Section ======= -->
   <section id="hero" class="hero d-flex align-items-center">
     <div class="container">
       <div class="row gy-4 d-flex justify-content-between">
         <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h2 data-aos="fade-up">Discover Movies Through Parental Eyes with Famvyu</h2>
-          <p data-aos="fade-up" data-aos-delay="100">Embark on a cinematic journey where every movie tells a story beyond the screen. At Famvyu, we bring together parents from all walks of life to rate and review movies, providing a unique perspective on what's suitable for family viewing. Dive into our extensive collection and find the perfect movie for your next family movie night.</p>
-  
+          <h2 data-aos="fade-up">Discover Family-Friendly Movies</h2>
+          <p data-aos="fade-up" data-aos-delay="100">Join our community of parents to find the perfect movies for your family. Get detailed ratings, reviews, and recommendations from other parents who understand what matters most.</p>
+          
           <form action="{% url 'search_results' %}" method="get" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
-            <input type="text" class="form-control" name="query" placeholder="Search by Movie Title or Genre">
-            <button type="submit" class="btn btn-primary">Search</button>
+            <input type="text" name="query" class="form-control" placeholder="Search for movies..." required>
+            <button type="submit" class="btn btn-primary-modern">Search</button>
           </form>
-  
-          <div class="row gy-4" data-aos="fade-up" data-aos-delay="400">
-  
+          
+          <div class="row gy-4" data-aos="fade-up" data-aos-delay="300">
             <div class="col-lg-3 col-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="5000" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Rated Movies</p>
-              </div><!-- End Stats Item -->
+              <div class="stats-item text-center">
+                <span data-purecounter-start="0" data-purecounter-end="203" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Movies</p>
+              </div>
             </div>
-  
             <div class="col-lg-3 col-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="1200" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Parental Reviews</p>
-              </div><!-- End Stats Item -->
+              <div class="stats-item text-center">
+                <span data-purecounter-start="0" data-purecounter-end="1250" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Reviews</p>
+              </div>
             </div>
-  
             <div class="col-lg-3 col-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="300" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Family Genres</p>
-              </div><!-- End Stats Item -->
+              <div class="stats-item text-center">
+                <span data-purecounter-start="0" data-purecounter-end="850" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Families</p>
+              </div>
             </div>
-  
             <div class="col-lg-3 col-6">
-              <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="800" data-purecounter-duration="1" class="purecounter"></span>
-                <p>Active Members</p>
-              </div><!-- End Stats Item -->
+              <div class="stats-item text-center">
+                <span data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Years</p>
+              </div>
             </div>
-  
           </div>
         </div>
-  
+        
         <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
-          <img src="{% static 'assets/img/hero-img.svg' %}" class="img-fluid mb-3 mb-lg-0" alt="Famvyu Hero Image">
+          <img src="{% static 'assets/img/hero-img.svg' %}" class="img-fluid mb-3 mb-lg-0" alt="Family Movie Time">
         </div>
-  
       </div>
     </div>
   </section><!-- End Hero Section -->
@@ -60,45 +54,75 @@
 
   <main id="main">
 
-    <!-- ======= Featured Services Section ======= -->
-    <section id="featured-services" class="featured-services">
-      <div class="container">
-    
+    <!-- ======= Featured Movies Section ======= -->
+    <section id="featured-movies" class="featured-services">
+      <div class="container" data-aos="fade-up">
         <div class="row gy-4">
-    
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up">
-            <div class="icon flex-shrink-0"><i class="fa-solid fa-film"></i></div>
-            <div>
-              <h4 class="title">Comprehensive Movie Database</h4>
-              <p class="description">Explore an extensive collection of movies from IMDB, complete with parental ratings and reviews to guide your family's viewing choices.</p>
-              <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-in">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-heart-fill icon"></i></div>
+              <h4><a href="" class="stretched-link">Family Favorites</a></h4>
+              <p>Discover movies that bring families together with wholesome entertainment suitable for all ages.</p>
             </div>
           </div>
-          <!-- End Service Item -->
-    
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon flex-shrink-0"><i class="fa-solid fa-users"></i></div>
-            <div>
-              <h4 class="title">Parental Community Insights</h4>
-              <p class="description">Join a community of parents sharing their insights and experiences to help you make informed decisions about suitable movies for your children.</p>
-              <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
+          
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-in" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-shield-check icon"></i></div>
+              <h4><a href="" class="stretched-link">Parental Insights</a></h4>
+              <p>Get detailed content guidance from parents who've watched these movies with their children.</p>
             </div>
-          </div><!-- End Service Item -->
-    
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon flex-shrink-0"><i class="fa-solid fa-star"></i></div>
-            <div>
-              <h4 class="title">Personalized Recommendations</h4>
-              <p class="description">Get tailored movie suggestions based on your preferences and the ratings of like-minded parents, ensuring a great pick for family movie night.</p>
-              <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i class="bi bi-arrow-right"></i></a>
+          </div>
+          
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-in" data-aos-delay="400">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-star-fill icon"></i></div>
+              <h4><a href="" class="stretched-link">Top Rated</a></h4>
+              <p>Browse the highest-rated movies based on family-friendly criteria and community reviews.</p>
             </div>
-          </div><!-- End Service Item -->
-    
+          </div>
+          
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-in" data-aos-delay="600">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-people-fill icon"></i></div>
+              <h4><a href="" class="stretched-link">Community Driven</a></h4>
+              <p>Join a community of parents sharing honest reviews and recommendations for family viewing.</p>
+            </div>
+          </div>
         </div>
-    
       </div>
-    </section><!-- End Featured Services Section -->
+    </section><!-- End Featured Movies Section -->
     
+
+    <!-- ======= Top Rated Movies Section ======= -->
+    <section id="service" class="services">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <span>Top Rated Movies</span>
+          <h2>Top Rated Movies</h2>
+          <p>Discover the best family-friendly movies as rated by our community of parents. Each movie has been carefully reviewed for content appropriateness and entertainment value.</p>
+        </div>
+
+        <div class="row gy-4">
+          {% for item in movies_with_ratings %}
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="movie-card">
+              <img src="{{ item.image_url }}" alt="{{ item.movie.title }}" class="movie-card-img">
+              <div class="movie-card-body">
+                <h3><a href="{% url 'movie_detail' item.movie.id %}">{{ item.movie.title }}</a></h3>
+                <p><strong>Community Rating:</strong> {{ item.average_rating }}</p>
+                <p><strong>Release Year:</strong> {{ item.movie.year }}</p>
+                <p><strong>IMDB Rating:</strong> {{ item.movie.imdb_rating }}/10</p>
+                <a href="{% url 'movie_detail' item.movie.id %}" class="btn btn-primary-modern btn-sm mt-2">
+                  View Details <i class="bi bi-arrow-right ms-1"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section><!-- End Top Rated Movies Section -->
 
     <!-- ======= About Us Section ======= -->
     <section id="about" class="about pt-0">

@@ -1,76 +1,171 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block content %}
 <main id="main">
-  {% block content %}
-    <!-- Breadcrumbs -->
-    <div class="breadcrumbs">
-      <div class="page-header d-flex align-items-center" style="background-image: url('assets/img/page-header.jpg');">
-        <div class="container position-relative">
-          <div class="row d-flex justify-content-center">
-            <div class="col-lg-6 text-center">
-              <h2>{{ movie.title }}</h2>
+  <!-- Modern Breadcrumbs -->
+  <div class="breadcrumbs">
+    <div class="page-header d-flex align-items-center" style="background: var(--gradient-primary);">
+      <div class="container position-relative">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-8 text-center">
+            <h2 style="color: white;">{{ movie.title }}</h2>
+            <p style="color: rgba(255,255,255,0.9);">Released in {{ movie.year }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav style="background-color: var(--color-background);">
+      <div class="container">
+        <ol>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li>{{ movie.title }}</li>
+        </ol>
+      </div>
+    </nav>
+  </div><!-- End Breadcrumbs -->
+
+  <!-- Movie Details Section -->
+  <section id="movie-details" class="movie-details" style="padding: 3rem 0; background-color: var(--color-background);">
+    <div class="container" data-aos="fade-up">
+      <div class="row gy-4">
+        <!-- Movie Poster -->
+        <div class="col-lg-5" data-aos="fade-right">
+          <div class="modern-card">
+            <img src="{{ movie.image_url }}" class="img-fluid" alt="{{ movie.title }}" style="width: 100%; border-radius: var(--radius-lg);">
+          </div>
+        </div>
+
+        <!-- Movie Information -->
+        <div class="col-lg-7" data-aos="fade-left">
+          <div class="modern-card">
+            <div class="modern-card-header">
+              <h3 style="margin: 0; font-size: 2rem;">{{ movie.title }}</h3>
+              <p style="color: var(--color-text-secondary); margin: 0.5rem 0 0 0;">{{ movie.year }}</p>
+            </div>
+            
+            <div class="modern-card-body">
+              <div class="row gy-3">
+                <div class="col-md-6">
+                  <div class="info-item">
+                    <i class="bi bi-calendar-event" style="color: var(--color-primary);"></i>
+                    <strong>Release Year:</strong> {{ movie.year }}
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="info-item">
+                    <i class="bi bi-star-fill" style="color: var(--color-warning);"></i>
+                    <strong>IMDB Rating:</strong> {{ movie.imdb_rating }}/10
+                  </div>
+                </div>
+                {% if movie.metascore %}
+                <div class="col-md-6">
+                  <div class="info-item">
+                    <i class="bi bi-award" style="color: var(--color-success);"></i>
+                    <strong>Metascore:</strong> {{ movie.metascore }}/100
+                  </div>
+                </div>
+                {% endif %}
+              </div>
+              
+              {% if movie.description %}
+              <div class="mt-4">
+                <h5 style="color: var(--color-text-primary); margin-bottom: 1rem;">Description</h5>
+                <p style="color: var(--color-text-secondary); line-height: 1.6;">{{ movie.description }}</p>
+              </div>
+              {% endif %}
             </div>
           </div>
         </div>
       </div>
-      <nav>
-        <div class="container">
-          <ol>
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li>{{ movie.title }}</li>
-          </ol>
+
+      <!-- Community Ratings Section -->
+      <div class="row mt-5">
+        <div class="col-12">
+          <h3 class="text-center mb-4" style="color: var(--color-text-primary);">Community Insights</h3>
         </div>
-      </nav>
-    </div><!-- End Breadcrumbs -->
-
-    <!-- Movie Details -->
-    <section id="movie-details" class="movie-details">
-      <div class="container" data-aos="fade-up">
-        <div class="row gy-4 align-items-center">
-          <!-- Movie Image -->
-          <div class="col-md-6">
-            <img src="{{ movie.image_url }}" class="img-fluid" alt="{{ movie.title }}">
-          </div>
-
-          <!-- Movie Information -->
-          <div class="col-md-6">
-            <h3>{{ movie.title }}</h3>
-            <p class="fst-italic">Duration: {{ movie.duration }}</p>
-            <ul>
-              <li><i class="bi bi-check"></i> Release Year: {{ movie.year }}</li>
-              <li><i class="bi bi-check"></i> Rating: {{ movie.star_rating }}</li>
-              <!-- Add more movie details here if available -->
-            </ul>
+        
+        {% if mood_type_percentages %}
+        <div class="col-lg-4 mb-4" data-aos="fade-up">
+          <div class="modern-card">
+            <div class="modern-card-header">
+              <h5 style="margin: 0;"><i class="bi bi-emoji-smile" style="color: var(--color-primary);"></i> Top Mood Types</h5>
+            </div>
+            <div class="modern-card-body">
+              {% for mood, percentage in mood_type_percentages.items %}
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span>{{ mood }}</span>
+                <span class="badge" style="background: var(--gradient-primary); color: white;">{{ percentage|floatformat:1 }}%</span>
+              </div>
+              {% endfor %}
+            </div>
           </div>
         </div>
+        {% endif %}
 
-        <!-- Top Mood Types -->
-    <div class="top-mood-types">
-        <h3>Top Mood Types</h3>
-        <ul>
-          {% for mood, percentage in mood_type_percentages.items %}
-            <li>{{ mood }}: {{ percentage|floatformat:2 }}%</li>
-          {% endfor %}
-        </ul>
+        {% if theme_label_percentages %}
+        <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="modern-card">
+            <div class="modern-card-header">
+              <h5 style="margin: 0;"><i class="bi bi-tags" style="color: var(--color-secondary);"></i> Top Themes</h5>
+            </div>
+            <div class="modern-card-body">
+              {% for label, percentage in theme_label_percentages.items %}
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span>{{ label }}</span>
+                <span class="badge" style="background: var(--gradient-accent); color: white;">{{ percentage|floatformat:1 }}%</span>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        {% endif %}
+
+        {% if average_age_recommendation %}
+        <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="modern-card">
+            <div class="modern-card-header">
+              <h5 style="margin: 0;"><i class="bi bi-people" style="color: var(--color-success);"></i> Age Recommendation</h5>
+            </div>
+            <div class="modern-card-body">
+              <div class="text-center">
+                <div style="font-size: 2rem; font-weight: 700; color: var(--color-primary);">
+                  {{ average_age_recommendation }}
+                </div>
+                <small style="color: var(--color-text-secondary);">Average recommendation</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
       </div>
-  
-      <!-- Top Theme Labels -->
-      <div class="top-theme-labels">
-        <h3>Top Theme Labels</h3>
-        <ul>
-          {% for label, percentage in theme_label_percentages.items %}
-            <li>{{ label }}: {{ percentage|floatformat:2 }}%</li>
-          {% endfor %}
-        </ul>
+
+      <!-- Action Buttons -->
+      <div class="row mt-4">
+        <div class="col-12 text-center">
+          <a href="{% url 'home' %}" class="btn btn-secondary-modern me-3">
+            <i class="bi bi-arrow-left"></i> Back to Movies
+          </a>
+          <a href="#" class="btn btn-primary-modern">
+            <i class="bi bi-star"></i> Rate This Movie
+          </a>
+        </div>
       </div>
-  
-      <!-- Average Age Recommendation -->
-      <div class="average-age-recommendation">
-        <h3>Average Age Recommendation</h3>
-        <p>{{ average_age_recommendation }}</p>
-      </div>
-      </div>
-    </section>
-  {% endblock %}
+    </div>
+  </section>
 </main>
+
+<style>
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+.info-item i {
+  width: 1.2rem;
+  text-align: center;
+}
+</style>
+{% endblock %}

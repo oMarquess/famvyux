@@ -1,77 +1,203 @@
-{% extends 'base/contact.html' %}
+{% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-  <!-- Your content specific to contact page goes here -->
-
-  <section id="contact" class="contact">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="info-box" data-aos="fade-up">
-            <i class="bi bi-geo-alt"></i>
-            <h3>Our Address</h3>
-            <p>A108 Adam Street, New York, NY 535022, United States</p>
+<main id="main">
+  <!-- Modern Page Header -->
+  <div class="breadcrumbs">
+    <div class="page-header d-flex align-items-center" style="background: var(--gradient-primary);">
+      <div class="container position-relative">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-8 text-center">
+            <h2 style="color: white;">Contact Us</h2>
+            <p style="color: rgba(255,255,255,0.9);">We'd love to hear from you and help with any questions</p>
           </div>
         </div>
-
-        <div class="col-lg-6">
-          <div class="info-box" data-aos="fade-up" data-aos-delay="100">
-            <i class="bi bi-envelope"></i>
-            <h3>Email Us</h3>
-            <p>support@parentalmovieratings.com</p>
-          </div>
-        </div>
-
-        <div class="col-lg-6">
-          <div class="info-box" data-aos="fade-up" data-aos-delay="200">
-            <i class="bi bi-phone"></i>
-            <h3>Call Us</h3>
-            <p>+1 5589 55488 55</p>
-          </div>
-        </div>
-
-        <div class="col-lg-6">
-          <div class="info-box" data-aos="fade-up" data-aos-delay="300">
-            <i class="bi bi-clock"></i>
-            <h3>Business Hours</h3>
-            <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
-          </div>
-        </div>
-
-        <!-- Add more contact information or customize the existing content as needed -->
-
       </div>
+    </div>
+    <nav style="background-color: var(--color-background);">
+      <div class="container">
+        <ol>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li>Contact</li>
+        </ol>
+      </div>
+    </nav>
+  </div>
 
-      <div class="row mt-5">
-        <div class="col-lg-12">
-          <form action="forms/contact.php" method="post" role="form" class="php-email-form" data-aos="fade-up">
-            <div class="row">
-              <div class="col-md-6 form-group">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+  <!-- Contact Information -->
+  <section style="padding: 5rem 0 3rem 0; background-color: var(--color-background);">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-6" data-aos="fade-up">
+          <div class="modern-card">
+            <div class="modern-card-header">
+              <h3 style="margin: 0;">Get in Touch</h3>
+            </div>
+            <div class="modern-card-body">
+              <p style="color: var(--color-text-secondary); margin-bottom: 2rem;">
+                Have questions about our platform or need help finding the perfect family movie? 
+                We're here to help! Reach out to us using any of the methods below.
+              </p>
+              
+              <div class="contact-info">
+                <div class="info-item d-flex align-items-center mb-4">
+                  <div class="icon-wrapper" style="background: var(--gradient-primary); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
+                    <i class="bi bi-geo-alt-fill" style="color: white; font-size: 1.2rem;"></i>
+                  </div>
+                  <div>
+                    <strong>Address</strong><br>
+                    <span style="color: var(--color-text-secondary);">A108 Adam Street, New York, NY 535022, United States</span>
+                  </div>
+                </div>
+                
+                <div class="info-item d-flex align-items-center mb-4">
+                  <div class="icon-wrapper" style="background: var(--gradient-accent); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
+                    <i class="bi bi-telephone-fill" style="color: white; font-size: 1.2rem;"></i>
+                  </div>
+                  <div>
+                    <strong>Phone</strong><br>
+                    <span style="color: var(--color-text-secondary);">+1 5589 55488 55</span>
+                  </div>
+                </div>
+                
+                <div class="info-item d-flex align-items-center mb-4">
+                  <div class="icon-wrapper" style="background: var(--gradient-primary); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
+                    <i class="bi bi-envelope-fill" style="color: white; font-size: 1.2rem;"></i>
+                  </div>
+                  <div>
+                    <strong>Email</strong><br>
+                    <span style="color: var(--color-text-secondary);">support@famvyu.com</span>
+                  </div>
+                </div>
+                
+                <div class="info-item d-flex align-items-center">
+                  <div class="icon-wrapper" style="background: var(--gradient-accent); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem;">
+                    <i class="bi bi-clock-fill" style="color: white; font-size: 1.2rem;"></i>
+                  </div>
+                  <div>
+                    <strong>Support Hours</strong><br>
+                    <span style="color: var(--color-text-secondary);">Monday - Friday: 9:00 AM - 6:00 PM EST</span>
+                  </div>
+                </div>
               </div>
-              <div class="col-md-6 form-group mt-3 mt-md-0">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-              </div>
             </div>
-            <div class="form-group mt-3">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+          </div>
+        </div>
+        
+        <!-- Contact Form -->
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="modern-card">
+            <div class="modern-card-header">
+              <h3 style="margin: 0;">Send us a Message</h3>
             </div>
-            <div class="form-group mt-3">
-              <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+            <div class="modern-card-body">
+              <form action="#" method="post" class="contact-form">
+                <div class="row gy-4">
+                  <div class="col-md-6">
+                    <label for="name" class="form-label" style="font-weight: 600; color: var(--color-text-primary);">Your Name</label>
+                    <input type="text" name="name" id="name" class="form-control" required style="border: 2px solid var(--color-border); border-radius: var(--radius-md); padding: 0.75rem;">
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <label for="email" class="form-label" style="font-weight: 600; color: var(--color-text-primary);">Your Email</label>
+                    <input type="email" name="email" id="email" class="form-control" required style="border: 2px solid var(--color-border); border-radius: var(--radius-md); padding: 0.75rem;">
+                  </div>
+                  
+                  <div class="col-12">
+                    <label for="subject" class="form-label" style="font-weight: 600; color: var(--color-text-primary);">Subject</label>
+                    <input type="text" name="subject" id="subject" class="form-control" required style="border: 2px solid var(--color-border); border-radius: var(--radius-md); padding: 0.75rem;">
+                  </div>
+                  
+                  <div class="col-12">
+                    <label for="message" class="form-label" style="font-weight: 600; color: var(--color-text-primary);">Message</label>
+                    <textarea name="message" id="message" rows="6" class="form-control" required style="border: 2px solid var(--color-border); border-radius: var(--radius-md); padding: 0.75rem; resize: vertical;"></textarea>
+                  </div>
+                  
+                  <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-primary-modern">
+                      <i class="bi bi-send"></i> Send Message
+                    </button>
+                  </div>
+                </div>
+              </form>
             </div>
-            <div class="my-3">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
-            </div>
-            <div class="text-center">
-              <button type="submit">Send Message</button>
-            </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- FAQ Section -->
+  <section style="padding: 4rem 0; background: linear-gradient(145deg, #ffffff 0%, var(--color-background) 100%);">
+    <div class="container">
+      <div class="section-header">
+        <span>Help Center</span>
+        <h2>Frequently Asked Questions</h2>
+        <p>Find quick answers to common questions about our platform</p>
+      </div>
+      
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="accordion" id="faqAccordion">
+            <div class="modern-card mb-3">
+              <div class="accordion-header" id="faq1">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" style="background: var(--color-surface); border: none; padding: 1.5rem; font-weight: 600;">
+                  How do I submit a movie rating?
+                </button>
+              </div>
+              <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                <div class="accordion-body" style="padding: 1.5rem; color: var(--color-text-secondary);">
+                  Simply browse to any movie page and click on the "Rate This Movie" button. You'll be able to provide ratings for mood, themes, age appropriateness, and overall family-friendliness.
+                </div>
+              </div>
+            </div>
+            
+            <div class="modern-card mb-3">
+              <div class="accordion-header" id="faq2">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" style="background: var(--color-surface); border: none; padding: 1.5rem; font-weight: 600;">
+                  Is the platform free to use?
+                </button>
+              </div>
+              <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body" style="padding: 1.5rem; color: var(--color-text-secondary);">
+                  Yes! Famvyu is completely free to use. You can browse movies, read reviews, and submit your own ratings without any cost.
+                </div>
+              </div>
+            </div>
+            
+            <div class="modern-card mb-3">
+              <div class="accordion-header" id="faq3">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" style="background: var(--color-surface); border: none; padding: 1.5rem; font-weight: 600;">
+                  How are movies selected for the platform?
+                </button>
+              </div>
+              <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body" style="padding: 1.5rem; color: var(--color-text-secondary);">
+                  We curate movies from various sources including IMDB's database, focusing on titles that are suitable for family viewing and have potential for parental guidance discussions.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
+<style>
+.form-control:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--color-background);
+  color: var(--color-primary);
+}
+</style>
 {% endblock %}

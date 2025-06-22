@@ -1,81 +1,269 @@
-
 {% extends 'base.html' %}
 {% load static %}
-  <!-- End Hero Section -->
-  <main id="main">
-  {% block content %}
-    <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs">
-      <div class="page-header d-flex align-items-center" style="background-image: url('assets/img/page-header.jpg');">
-        <div class="container position-relative">
-          <div class="row d-flex justify-content-center">
-            <div class="col-lg-6 text-center">
-              <h2>Search Results for</h2>
-              <p> "{{ query }}"</p>
-            </div>
-          </div>
+
+{% block content %}
+<main id="main">
+    <!-- Redesigned Hero Section with Search Bar -->
+    <section class="search-hero-redesign">
+        <div class="hero-background">
+            <div class="hero-pattern"></div>
         </div>
-      </div>
-      <nav>
         <div class="container">
-          <ol>
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li></li>
-          </ol>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="search-header">
+                        <div class="search-icon-large">
+                            <i class="bi bi-search"></i>
+                        </div>
+                        <h1 class="search-title">Search Results</h1>
+                        <div class="search-query-display">
+                            <span class="query-text">"{{ query }}"</span>
+                            <div class="result-count">
+                                <span class="count-number">{{ movies.count }}</span>
+                                <span class="count-label">movie{{ movies.count|pluralize }} found</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Enhanced Search Bar -->
+                    <div class="search-bar-container">
+                        <form method="GET" action="{% url 'search_results' %}" class="search-form-redesign">
+                            <div class="search-input-group">
+                                <i class="bi bi-search search-input-icon"></i>
+                                <input type="text" name="query" value="{{ query }}" placeholder="Search for movies..." class="search-input-redesign">
+                                <button type="submit" class="search-btn-redesign">
+                                    <i class="bi bi-arrow-right"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-      </nav>
-    </div><!-- End Breadcrumbs -->
+    </section>
 
+    <!-- Redesigned Results Section -->
+    <section class="results-section-redesign">
+        <div class="container">
+            {% if movies %}
+                <!-- Filter and Sort Bar -->
+                <div class="results-toolbar">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="results-summary">
+                                <h3 class="results-title">Discover Movies</h3>
+                                <p class="results-subtitle">{{ movies.count }} result{{ movies.count|pluralize }} for your search</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="results-actions">
+                                <div class="view-toggle">
+                                    <button class="view-btn active" data-view="grid">
+                                        <i class="bi bi-grid-3x3-gap"></i>
+                                    </button>
+                                    <button class="view-btn" data-view="list">
+                                        <i class="bi bi-list"></i>
+                                    </button>
+                                </div>
+                                <select class="sort-select">
+                                    <option>Sort by Relevance</option>
+                                    <option>Sort by Rating</option>
+                                    <option>Sort by Year</option>
+                                    <option>Sort by Title</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- ======= Services Section ======= -->
-    <section id="service" class="services pt-0">
-      <div class="container" data-aos="fade-up">
+                <!-- Movies Grid Redesign -->
+                <div class="movies-grid-redesign" id="moviesGrid">
+                    {% for movie in movies %}
+                        <div class="movie-card-redesign" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:50 }}">
+                            <div class="movie-poster-container">
+                                {% if movie.image_url %}
+                                    <img src="{{ movie.image_url }}" alt="{{ movie.title }}" class="movie-poster">
+                                {% else %}
+                                    <div class="poster-placeholder">
+                                        <i class="bi bi-film"></i>
+                                        <span>No Poster</span>
+                                    </div>
+                                {% endif %}
+                                <div class="movie-overlay">
+                                    <div class="overlay-content">
+                                        <button class="quick-view-btn" data-movie-id="{{ movie.id }}">
+                                            <i class="bi bi-eye"></i>
+                                            Quick View
+                                        </button>
+                                        <a href="{% url 'movie_detail' movie.id %}" class="full-details-btn">
+                                            <i class="bi bi-arrow-right"></i>
+                                            Full Details
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="rating-badge">
+                                    <i class="bi bi-star-fill"></i>
+                                    <span>{{ movie.imdb_rating|default:"N/R" }}</span>
+                                </div>
+                            </div>
+                            
+                            <div class="movie-info">
+                                <h3 class="movie-title">{{ movie.title }}</h3>
+                                <div class="movie-metadata">
+                                    <span class="movie-year">{{ movie.year|default:"Unknown" }}</span>
+                                    {% if movie.genre %}
+                                        <span class="movie-genre">{{ movie.genre|truncatewords:2 }}</span>
+                                    {% endif %}
+                                </div>
+                                {% if movie.plot %}
+                                    <p class="movie-description">{{ movie.plot|truncatewords:15 }}</p>
+                                {% endif %}
+                                <div class="movie-actions">
+                                    <button class="action-btn favorite-btn">
+                                        <i class="bi bi-heart"></i>
+                                    </button>
+                                    <button class="action-btn watchlist-btn">
+                                        <i class="bi bi-bookmark"></i>
+                                    </button>
+                                    <button class="action-btn share-btn">
+                                        <i class="bi bi-share"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
 
-        <div class="section-header">
-          <span> Your request </span>
-          <h2>Your request </h2>
+                <!-- Load More Button -->
+                <div class="load-more-section">
+                    <button class="load-more-btn">
+                        <i class="bi bi-plus-circle"></i>
+                        Load More Movies
+                    </button>
+                </div>
 
+            {% else %}
+                <!-- Redesigned No Results -->
+                <div class="no-results-redesign">
+                    <div class="no-results-content">
+                        <div class="no-results-illustration">
+                            <div class="search-animation">
+                                <i class="bi bi-search"></i>
+                                <div class="search-waves">
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                    <div class="wave"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <h2 class="no-results-title">No Movies Found</h2>
+                        <p class="no-results-message">
+                            We couldn't find any movies matching <strong>"{{ query }}"</strong>
+                        </p>
+                        
+                        <!-- Search Suggestions -->
+                        <div class="search-suggestions-redesign">
+                            <h4>Try searching for:</h4>
+                            <div class="suggestion-chips">
+                                <a href="?query=action" class="suggestion-chip">Action</a>
+                                <a href="?query=comedy" class="suggestion-chip">Comedy</a>
+                                <a href="?query=drama" class="suggestion-chip">Drama</a>
+                                <a href="?query=family" class="suggestion-chip">Family</a>
+                                <a href="?query=adventure" class="suggestion-chip">Adventure</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Alternative Actions -->
+                        <div class="alternative-actions">
+                            <a href="{% url 'home' %}" class="alt-action-btn primary">
+                                <i class="bi bi-house"></i>
+                                Browse All Movies
+                            </a>
+                            <a href="{% url 'add-movie' %}" class="alt-action-btn secondary">
+                                <i class="bi bi-plus-lg"></i>
+                                Suggest "{{ query }}"
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
         </div>
-        <section id="features" class="features">
-          <div class="container">
-              {% if movies %}
-                  {% for movie in movies %}
-                      <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
-                          <!-- Movie Image -->
-                          <div class="col-md-6">
-                              <img src="{{ movie.image_url }}" class="img-fluid" alt="{{ movie.title }}">
-                          </div>
-      
-                          <!-- Movie Details -->
-                          <div class="col-md-6">
-                              <h3>{{ movie.title }}</h3>
-                              <p class="fst-italic">
-                                  Duration: {{ movie.duration }}
-                              </p>
-                              <ul>
-                                  <li><i class="bi bi-check"></i> Release Year: {{ movie.year }}</li>
-                                  <li><i class="bi bi-check"></i> Rating: {{ movie.star_rating }}</li>
-                                  <!-- Add more movie details here if available -->
-                              </ul>
-                              <a href="{{ movie.product_url }}" class="get-a-quote">More Information</a>
-                          </div>
-                      </div><!-- Features Item -->
-                  {% endfor %}
-              {% else %}
-                  <p>No movies found matching your query, Help us update our list now: <a class="get-a-quote" href="{% url 'add-movie' %}">Add {{query}}</a></p>
+    </section>
 
-              {% endif %}
-          </div>
-      </section>
-      
-      
-       
-
-      </div>
-    </section><!-- End Services Section -->
-
+    <!-- Related Searches Section -->
+    {% if movies %}
+        <section class="related-searches-section">
+            <div class="container">
+                <div class="section-header-redesign">
+                    <h3>Related Searches</h3>
+                    <p>Discover more movies you might like</p>
+                </div>
+                <div class="related-tags">
+                    <a href="?query=similar to {{ query }}" class="related-tag">Similar Movies</a>
+                    <a href="?query={{ query }} series" class="related-tag">Movie Series</a>
+                    <a href="?query={{ query }} cast" class="related-tag">Same Cast</a>
+                    <a href="?query=latest {{ query }}" class="related-tag">Latest</a>
+                </div>
+            </div>
+        </section>
+    {% endif %}
 </main>
 
-  {% endblock %}
+<!-- Quick View Modal -->
+<div class="modal fade" id="quickViewModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Quick View</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div id="quickViewContent">
+                    <!-- Content loaded via JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// View toggle functionality
+document.querySelectorAll('.view-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        
+        const view = this.dataset.view;
+        const grid = document.getElementById('moviesGrid');
+        
+        if (view === 'list') {
+            grid.classList.add('list-view');
+        } else {
+            grid.classList.remove('list-view');
+        }
+    });
+});
+
+// Quick view functionality
+document.querySelectorAll('.quick-view-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const movieId = this.dataset.movieId;
+        // Add AJAX call to load movie details
+        const modal = new bootstrap.Modal(document.getElementById('quickViewModal'));
+        modal.show();
+    });
+});
+
+// Action buttons
+document.querySelectorAll('.favorite-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        this.classList.toggle('active');
+        const icon = this.querySelector('i');
+        icon.classList.toggle('bi-heart');
+        icon.classList.toggle('bi-heart-fill');
+    });
+});
+</script>
+{% endblock %}
 
   <!-- ======= Footer ======= -->

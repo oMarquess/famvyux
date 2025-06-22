@@ -1,31 +1,172 @@
-{% extends 'base/about.html' %}
+{% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-  <!-- Your content specific to the about page goes here -->
+<main id="main">
+  <!-- Modern Page Header -->
+  <div class="breadcrumbs">
+    <div class="page-header d-flex align-items-center" style="background: var(--gradient-primary);">
+      <div class="container position-relative">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-8 text-center">
+            <h2 style="color: white;">About Famvyu</h2>
+            <p style="color: rgba(255,255,255,0.9);">Connecting families through thoughtful movie recommendations</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav style="background-color: var(--color-background);">
+      <div class="container">
+        <ol>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li>About</li>
+        </ol>
+      </div>
+    </nav>
+  </div>
 
-  <section id="about" class="about">
+  <!-- About Section -->
+  <section id="about" class="about" style="padding: 5rem 0; background-color: var(--color-background);">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
-          <h2>About Us</h2>
-          <p>
-            Welcome to Famvyu, a dedicated platform for parents to rate and review movies based on family-friendly content.
-            Share your insights and help other parents make informed decisions about movie suitability for children.
-          </p>
-          <ul>
-            <li><i class="bi bi-check-circle"></i> Parental Guides for Movies</li>
-            <li><i class="bi bi-check-circle"></i> Discussion Forums</li>
-            <li><i class="bi bi-check-circle"></i> Latest Releases</li>
-            <li><i class="bi bi-check-circle"></i> Top Rated Movies</li>
-            <li><i class="bi bi-check-circle"></i> User Recommendations</li>
-          </ul>
+      <div class="row gy-4">
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="modern-card">
+            <img src="{% static 'assets/img/about.jpg' %}" class="img-fluid" alt="About Famvyu" style="border-radius: var(--radius-lg);">
+          </div>
+        </div>
+        
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="modern-card">
+            <div class="modern-card-header">
+              <h3 style="margin: 0;">Our Mission</h3>
+            </div>
+            <div class="modern-card-body">
+              <p style="color: var(--color-text-secondary); line-height: 1.7;">
+                Welcome to Famvyu, a dedicated platform for parents to rate and review movies based on family-friendly content.
+                We understand that choosing the right movie for family time can be challenging, which is why we've created a 
+                community where parents can share their insights and help others make informed decisions.
+              </p>
+              
+              <div class="features-list mt-4">
+                <div class="feature-item d-flex align-items-center mb-3">
+                  <i class="bi bi-check-circle-fill" style="color: var(--color-success); margin-right: 1rem; font-size: 1.2rem;"></i>
+                  <span>Comprehensive parental guidance for movies</span>
+                </div>
+                <div class="feature-item d-flex align-items-center mb-3">
+                  <i class="bi bi-check-circle-fill" style="color: var(--color-success); margin-right: 1rem; font-size: 1.2rem;"></i>
+                  <span>Community-driven reviews and ratings</span>
+                </div>
+                <div class="feature-item d-flex align-items-center mb-3">
+                  <i class="bi bi-check-circle-fill" style="color: var(--color-success); margin-right: 1rem; font-size: 1.2rem;"></i>
+                  <span>Age-appropriate content recommendations</span>
+                </div>
+                <div class="feature-item d-flex align-items-center mb-3">
+                  <i class="bi bi-check-circle-fill" style="color: var(--color-success); margin-right: 1rem; font-size: 1.2rem;"></i>
+                  <span>Detailed mood and theme categorization</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- You can add more sections or customize the existing content as needed -->
-{% load static %}
+  <!-- Features Section -->
+  <section style="padding: 4rem 0; background: linear-gradient(145deg, #ffffff 0%, var(--color-background) 100%);">
+    <div class="container">
+      <div class="section-header">
+        <span>What We Offer</span>
+        <h2>Why Choose Famvyu</h2>
+        <p>Discover what makes our platform the go-to choice for family movie selection</p>
+      </div>
+      
+      <div class="row gy-4">
+        <div class="col-lg-4" data-aos="fade-up">
+          <div class="modern-card text-center">
+            <div class="modern-card-body">
+              <div class="icon-wrapper mb-3" style="background: var(--gradient-primary); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                <i class="bi bi-people-fill" style="font-size: 2rem; color: white;"></i>
+              </div>
+              <h4>Parent Community</h4>
+              <p style="color: var(--color-text-secondary);">Connect with other parents and share experiences about movies your family has enjoyed together.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="modern-card text-center">
+            <div class="modern-card-body">
+              <div class="icon-wrapper mb-3" style="background: var(--gradient-accent); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                <i class="bi bi-shield-check" style="font-size: 2rem; color: white;"></i>
+              </div>
+              <h4>Safe Content</h4>
+              <p style="color: var(--color-text-secondary);">Every movie is reviewed by parents for content appropriateness, ensuring safe viewing for your children.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="modern-card text-center">
+            <div class="modern-card-body">
+              <div class="icon-wrapper mb-3" style="background: var(--gradient-primary); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                <i class="bi bi-star-fill" style="font-size: 2rem; color: white;"></i>
+              </div>
+              <h4>Quality Ratings</h4>
+              <p style="color: var(--color-text-secondary);">Get detailed ratings based on entertainment value, educational content, and family bonding potential.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Statistics Section -->
+  <section style="padding: 4rem 0; background: var(--gradient-primary);">
+    <div class="container">
+      <div class="row gy-4 text-center">
+        <div class="col-lg-3 col-md-6">
+          <div style="color: white;">
+            <div style="font-size: 3rem; font-weight: 700; margin-bottom: 0.5rem;">203+</div>
+            <p style="margin: 0; opacity: 0.9;">Movies Reviewed</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div style="color: white;">
+            <div style="font-size: 3rem; font-weight: 700; margin-bottom: 0.5rem;">850+</div>
+            <p style="margin: 0; opacity: 0.9;">Families Helped</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div style="color: white;">
+            <div style="font-size: 3rem; font-weight: 700; margin-bottom: 0.5rem;">1200+</div>
+            <p style="margin: 0; opacity: 0.9;">Community Reviews</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div style="color: white;">
+            <div style="font-size: 3rem; font-weight: 700; margin-bottom: 0.5rem;">24/7</div>
+            <p style="margin: 0; opacity: 0.9;">Platform Availability</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Call to Action -->
+  <section style="padding: 4rem 0; background-color: var(--color-background);">
+    <div class="container text-center">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <h3 style="margin-bottom: 1rem; color: var(--color-text-primary);">Ready to Join Our Community?</h3>
+          <p style="color: var(--color-text-secondary); margin-bottom: 2rem;">Start discovering amazing family-friendly movies today and connect with parents who share your values.</p>
+          <div>
+            <a href="{% url 'home' %}" class="btn btn-primary-modern me-3">Explore Movies</a>
+            <a href="{% url 'contact' %}" class="btn btn-secondary-modern">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 {% endblock %}
