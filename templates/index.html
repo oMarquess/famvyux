@@ -1,4 +1,3 @@
-
 {% extends 'base.html' %}
 
 {% load static %}
@@ -163,8 +162,7 @@
                       <h3><a href="{% url 'movie_detail' item.movie.id %}" class="stretched-link">{{ item.movie.title }}</a></h3>
                       <p>Average Rating: {{ item.average_rating }}</p>
                       <p>Year: {{ item.movie.year }}</p>
-                      <p>Star Rating: {{ item.movie.star_rating }}</p>
-                      <p>Duration: {{ item.movie.duration }}</p>
+                      <p>IMDB Rating: {{ item.movie.imdb_rating }}</p>
                   </div>
               </div>
           </div>
